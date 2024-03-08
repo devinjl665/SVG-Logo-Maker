@@ -9,6 +9,36 @@ const logoPrompts = [
   'Select the color of the logo shape (Enter a color or the hex code).',
 ];
 
+
+function write(fileName, answers) { 
+    let svg = '';    
+
+    svg = '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
+    svg += '<g>';
+    svg += `${answers.shapeChoice}`;
+
+    let shape;
+    if (answers.shapeChoice === 'Circle') {
+      shape = new Circle();
+      svg += `<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
+    } else if (answers.Choice === 'Triangle') {
+      shape = new Triangle();
+      svg += `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}"/>`;
+    } else {
+      shape = new Square();
+      svg += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeColor}"/>`;
+    }
+
+    svg += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
+    svg += '</g>';
+    svg += '</svg>';
+
+
+    fs.writeFile(fileName, svg, (err) =>
+      err ? console.log(err) : console.log('Logo generated!')
+    )
+}
+
 function initPrompts() {
   inquirer
     .prompt([
@@ -26,7 +56,7 @@ function initPrompts() {
         type: 'list',
         message: logoPrompts[2],
         choices: ['Circle', 'Triangle', 'Square'],
-        name: 'shape',
+        name: 'shapeChoice',
       },
       {
         type: 'input',
@@ -35,24 +65,15 @@ function initPrompts() {
       },
     ])
     .then((answers) => {
-      let shape = '';
-
-      if (answers.shape === 'Circle') {
-        shape = new Circle(answers.text, answers.textColor, answers.shapeColor);
-      } else if (answers.shape === 'Triangle') {
-        shape = new Triangle(answers.text, answers.textColor, answers.shapeColor);
+      if (answers.text.length > 3) {
+        console.log('Text cannot exceed 3 characters.');
+        initPrompts();  
       } else {
-        shape = new Square(answers.text, answers.textColor, answers.shapeColor);
+          write('./Examples/logo.svg', answers);
       }
 
-      shape.createShape();
-
-      const html = shape.render();
-
-      fs.writeFile('./Examples/logo.svg', html, (err) =>
-        err ? console.log(err) : console.log('Logo generated!')
-      );
-    });
+  });
 }
+
 
 initPrompts();
