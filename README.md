@@ -6,7 +6,7 @@ Your task is to build a Node.js command-line application that takes in user inpu
 
 ## Demo
 
-<a href="https://drive.google.com/file/d/1WmeFNGabpkdXNlpin_2J1M4DQdxA3G3l/view?usp=drive_link">SVG Logo Maker Demo Video</a>
+<a href="https://drive.google.com/file/d/1GvD8Doj62E4IUiUH0ywKDD3APTOPUSIw/view?usp=drive_link">SVG Logo Maker Demo Video</a>
 
 ## Installation
 
