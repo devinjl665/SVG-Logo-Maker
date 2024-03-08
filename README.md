@@ -6,23 +6,23 @@ Your task is to build a Node.js command-line application that takes in user inpu
 
 ## Demo
 
-<a href=""> SVG Logo Maker Demo Video </a>
+<a href="https://drive.google.com/file/d/1WmeFNGabpkdXNlpin_2J1M4DQdxA3G3l/view?usp=drive_link">SVG Logo Maker Demo Video</a>
 
 ## Installation
 
-
+Node and Inquirer must be installed in order for the application to run and function correctly. Additionally, you can also install jest if you would like to test if the application works without generating an image.
 
 ## Usage
 
-
+Open the integrated terminal for the "index.js" file. Once open, enter "node index.js" in the terminal's command line. You will then be met with prompts that will allow you to configure your own personal .svg logo. Enter "npm run test" if you would just to see that this application works properly.
 
 ## Credits
 
-
+I authored this code with the help of the coursework for this module from Wash U in Saint Louis Coding Bootcamp, Stack Overflow, and W3Schools. 
 
 ## User Story
 
-AS a freelance web developer I want to generate a simple logo for my projects so that I don't have to pay a graphic designer
+As a freelance web developer I want to generate a simple logo for my projects so that I don't have to pay a graphic designer.
 
 
 ## Acceptance Criteria
@@ -54,3 +54,7 @@ AND the output text "Generated logo.svg" is printed in the command line
 WHEN I open the `logo.svg` file in a browser
 
 THEN I am shown a 300x200 pixel image that matches the criteria I entered
+
+## Contact Me
+
+Email: [devinjl665@gmail.com](mailto:devinjl665@gmail.com?subject=[GitHub]%20Source%20Han%20Sans)
